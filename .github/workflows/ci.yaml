@@ -24,7 +24,7 @@ jobs:
         with:
           node-version: '20'
           cache: 'npm'
-          cache-dependency-path: ./github-analyze-diff/package-lock.json
+          cache-dependency-path: github-analyze-diff/package-lock.json
 
       - name: Install dependencies
         run: npm ci
@@ -52,7 +52,7 @@ jobs:
         with:
           node-version: '20'
           cache: 'npm'
-          cache-dependency-path: ./github-analyze-diff/package-lock.json
+          cache-dependency-path: github-analyze-diff/package-lock.json
 
       - name: Install dependencies
         run: npm ci
@@ -107,7 +107,7 @@ jobs:
         with:
           node-version: '20'
           cache: 'npm'
-          cache-dependency-path: ./github-analyze-diff/package-lock.json
+          cache-dependency-path: github-analyze-diff/package-lock.json
 
       - name: Install dependencies
         run: npm ci
@@ -130,4 +130,4 @@ jobs:
           echo "  - ✅ Code quality check completed"
           echo "  - ✅ Build test completed"  
           echo "  - ✅ Docker build test completed"
-          echo "  - ✅ Security check completed" 
+          echo "  - ✅ Security check completed"
