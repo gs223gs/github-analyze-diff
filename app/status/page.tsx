@@ -1,6 +1,6 @@
 "use client";
 import { useAtom } from "jotai";
-import { userAtom } from "../state/atoms/userAtom";
+import { userAtom } from "../state/atoms";
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
