@@ -1,17 +1,20 @@
 import Image from "next/image";
+import { useAtom } from "jotai";
+import { themeAtom } from "@/app/state/atoms";
 
 interface AnalyzeProps {
   user: string;
 }
 
 export default function Analyze({ user }: AnalyzeProps) {
+  const [theme] = useAtom(themeAtom);
   return (
     <div>
       <p>{user}のGitHub統計</p>
       <div className="grid grid-cols-2 gap-4">
         <div>
           <Image
-            src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${user}&layout=compact&theme=tokyonight`}
+            src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${user}&layout=compact&theme=${theme}`}
             alt={`${user}'s GitHub stats`}
             width={495}
             height={195}
@@ -20,7 +23,7 @@ export default function Analyze({ user }: AnalyzeProps) {
         </div>
         <div>
           <Image
-            src={`https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=${user}&theme=tokyonight`}
+            src={`https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=${user}&theme=${theme}`}
             alt={`${user}'s GitHub stats`}
             width={495}
             height={195}
@@ -29,7 +32,7 @@ export default function Analyze({ user }: AnalyzeProps) {
         </div>
         <div>
           <Image
-            src={`https://github-readme-stats.vercel.app/api?username=${user}&count_private=true&show_icons=true&theme=tokyonight`}
+            src={`https://github-readme-stats.vercel.app/api?username=${user}&count_private=true&show_icons=true&theme=${theme}`}
             alt={`${user}'s GitHub stats`}
             width={495}
             height={195}
@@ -38,7 +41,7 @@ export default function Analyze({ user }: AnalyzeProps) {
         </div>
         <div>
           <Image
-            src={`http://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=${user}&theme=tokyonight&utcOffset=9`}
+            src={`http://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=${user}&theme=${theme}&utcOffset=9`}
             alt={`${user}'s GitHub stats`}
             width={495}
             height={195}

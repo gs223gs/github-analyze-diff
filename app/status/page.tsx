@@ -4,6 +4,7 @@ import { userAtom } from "../state/atoms";
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { ThemeSelector } from "@/components/ui/theme-selector";
 import Analyze from "@/components/template/Analyze";
 
 export default function Status() {
@@ -16,8 +17,8 @@ export default function Status() {
   };
 
   return (
-    <div>
-      <div>
+    <div className="space-y-4">
+      <div className="space-y-4">
         <Input
           value={userInput}
           onChange={(e) => setUserInput(e.target.value)}
@@ -27,6 +28,7 @@ export default function Status() {
         <Button onClick={handleSubmit}>
           Set User
         </Button>
+        <ThemeSelector />
       </div>
 
       {user !== "" ? (
