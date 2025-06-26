@@ -60,6 +60,15 @@ export default function Analyze({ user }: AnalyzeProps) {
             unoptimized
           />
         </div>
+        <div>
+          <Image
+            src={`https://badgen.org/img/zenn/${user}/books?style=plastic`}
+            alt={`${user}'s GitHub stats`}
+            width={495}
+            height={195}
+            unoptimized
+          />
+        </div>
       </div>
 
       <div>
@@ -81,8 +90,34 @@ export default function Analyze({ user }: AnalyzeProps) {
             unoptimized
           />
         </div>
+        <div>
+          <Image
+            src={`https://badgen.org/img/atcoder/${user}/rating/algorithm?style=plastic`}
+            alt={`${user}'s GitHub stats`}
+            width={495}
+            height={195}
+            unoptimized
+          />
+        </div>
+        <div>
+          <Image
+            src={`https://badgen.org/img/atcoder/${user}/rating/heuristic?style=plastic`}
+            alt={`${user}'s GitHub stats`}
+            width={495}
+            height={195}
+            unoptimized
+          />
+        </div>
       </div>
-
+      <div>
+        <Image
+          src={`https://github-profile-trophy.vercel.app/?username=${user}`}
+          alt={`${user}'s GitHub stats`}
+          width={495}
+          height={195}
+          unoptimized
+        />
+      </div>
       <div className="grid grid-cols-2 gap-4">
         <div>
           <Image
