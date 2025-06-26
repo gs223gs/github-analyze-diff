@@ -11,6 +11,42 @@ export default function Analyze({ user }: AnalyzeProps) {
   return (
     <div>
       <p>{user}のGitHub統計</p>
+      <div>
+        <Image
+          src={`https://img.shields.io/github/followers/${user}?label=follow&logo=github&style=flat`}
+          alt={`${user}'s GitHub stats`}
+          width={495}
+          height={195}
+          unoptimized
+        />
+      </div>
+      <div>
+        <Image
+          src={`https://img.shields.io/github/stars/${user}?label=star&logo=github&style=flat`}
+          alt={`${user}'s GitHub stats`}
+          width={495}
+          height={195}
+          unoptimized
+        />
+      </div>
+      <div>
+        <Image
+          src={`https://badgen.org/img/zenn/${user}/articles?style=plastic`}
+          alt={`${user}'s GitHub stats`}
+          width={495}
+          height={195}
+          unoptimized
+        />
+      </div>
+      <div>
+        <Image
+          src={`https://badgen.org/img/qiita/${user}/articles?style=plastic`}
+          alt={`${user}'s GitHub stats`}
+          width={495}
+          height={195}
+          unoptimized
+        />
+      </div>
       <div className="grid grid-cols-2 gap-4">
         <div>
           <Image
