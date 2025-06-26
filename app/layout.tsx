@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   description: "GitHub、Zenn、Qiita、AtCoderでの開発者活動を美しく可視化するツール",
   keywords: ["GitHub", "統計", "開発者", "プログラミング", "Zenn", "Qiita", "AtCoder"],
   authors: [{ name: "GitHub Stats Visualizer Team" }],
+  icons: {
+    icon: "/favicon.ico",
+  },
   openGraph: {
     title: "GitHub Stats Visualizer",
     description: "GitHub、Zenn、Qiita、AtCoderでの開発者活動を美しく可視化するツール",

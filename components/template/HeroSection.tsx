@@ -21,7 +21,7 @@ export default function HeroSection({
         <div className="text-center">
           <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold mb-8 animate-fade-in">
             <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
-              GitHub Stats Visualizer
+              GitHub Analyzer Diff
             </span>
           </h1>
           <p className="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 mb-12 max-w-3xl mx-auto animate-fade-in animation-delay-200">
