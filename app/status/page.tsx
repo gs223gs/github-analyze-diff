@@ -1,6 +1,7 @@
 "use client";
 import { Suspense } from "react";
 import dynamic from "next/dynamic";
+export const runtime = "edge";
 
 // useSearchParams()を使用するコンポーネントを動的インポート
 const StatusPageContent = dynamic(() => import("./components/StatusPageContent"), {
