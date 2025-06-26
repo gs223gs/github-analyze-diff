@@ -41,7 +41,7 @@ export default function HeroSection({
           {/* サンプルユーザー */}
           <div className="mt-8 animate-fade-in animation-delay-600">
             <p className="text-sm text-gray-500 dark:text-gray-400 mb-3">
-              サンプル:
+              ↓ 開発者を見る ↓
             </p>
             <div className="flex flex-wrap justify-center gap-2">
               {sampleUsers.map((user) => (
@@ -62,4 +62,4 @@ export default function HeroSection({
       </div>
     </section>
   );
-} 
+}

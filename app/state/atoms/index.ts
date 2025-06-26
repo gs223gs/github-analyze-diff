@@ -1,6 +1,5 @@
 import { atom } from "jotai";
 
-// テーマの型定義
 export type Theme = 
   | "default"
   | "2077" 
@@ -19,7 +18,6 @@ export type Theme =
   | "zenburn"
   | "transparent";
 
-// テーマ定数オブジェクト（UI用）
 export const THEMES = {
   default: { value: "default", label: "Default" },
   "2077": { value: "2077", label: "2077" },
@@ -39,16 +37,12 @@ export const THEMES = {
   transparent: { value: "transparent", label: "Transparent" },
 } as const;
 
-// テーマ選択肢の配列（セレクトボックス用）
 export const THEME_OPTIONS = Object.values(THEMES);
 
-// ユーザー関連のatom
 export const userAtom = atom<string>("");
 export const profileUserAtom = atom<string>("");
 
-// テーマ関連のatom（型安全に）
 export const themeAtom = atom<Theme>("tokyonight");
 
-// 型定義（必要に応じて）
 export type UserState = string;
 export type ThemeState = string; 
