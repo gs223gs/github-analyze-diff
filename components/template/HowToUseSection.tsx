@@ -8,17 +8,17 @@ const steps: Step[] = [
   {
     number: 1,
     title: "ユーザー名を入力",
-    description: "GitHubのユーザー名を入力してください",
+    description: "GitHubのユーザー名を入力",
   },
   {
     number: 2,
     title: "統計を確認",
-    description: "各プラットフォームでの活動が可視化されます",
+    description: "各プラットフォームでの活動が可視化",
   },
   {
     number: 3,
     title: "テーマを選択",
-    description: "お好みのテーマで統計を表示できます",
+    description: "お好みのテーマで統計を表示",
   },
 ];
 

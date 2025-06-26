@@ -9,12 +9,12 @@ interface PreviewCard {
 const previews: PreviewCard[] = [
   {
     title: "GitHub統計カード",
-    imageUrl: "https://github-readme-stats.vercel.app/api?username=vercel&count_private=true&show_icons=true&theme=tokyonight",
+    imageUrl: "https://github-readme-stats.vercel.app/api?username=gs223gs&count_private=true&show_icons=true&theme=tokyonight",
     alt: "GitHub Stats Example",
   },
   {
     title: "言語使用率",
-    imageUrl: "https://github-readme-stats.vercel.app/api/top-langs/?username=vercel&layout=compact&theme=tokyonight",
+    imageUrl: "https://github-readme-stats.vercel.app/api/top-langs/?username=gs223gs&layout=compact&theme=tokyonight",
     alt: "Language Stats Example",
   },
 ];
