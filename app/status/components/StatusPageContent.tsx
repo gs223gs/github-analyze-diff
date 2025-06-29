@@ -1,26 +1,26 @@
 "use client";
-import { UserSearchForm } from "@/components/features/search";
-import { UserStatsDisplay } from "@/components/features/user-stats";
+import { MultiPlatformSearchForm } from "@/components/features/search/MultiPlatformSearchForm";
+import { MultiPlatformUserStatsDisplay } from "@/components/features/user-stats/MultiPlatformUserStatsDisplay";
 import { EmptyState } from "@/components/common";
-import { useUserStats } from "../hooks/useUserStats";
+import { useMultiPlatformUserStats } from "../hooks/useMultiPlatformUserStats";
 
 export default function StatusPageContent() {
-  const { user, userInput, setUserInput, handleSubmit } = useUserStats();
+  const { currentQuery, displayUser, hasValidQuery, getUserForPlatform } = useMultiPlatformUserStats();
 
   return (
     <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <UserSearchForm
-        value={userInput}
-        onChange={setUserInput}
-        onSubmit={handleSubmit}
-      />
+      <MultiPlatformSearchForm className="mb-8" />
 
       <div className="mt-8">
-        {user ? (
-          <UserStatsDisplay user={user} />
+        {hasValidQuery && displayUser ? (
+          <MultiPlatformUserStatsDisplay 
+            query={currentQuery}
+            getUserForPlatform={getUserForPlatform}
+            primaryUser={displayUser}
+          />
         ) : (
           <EmptyState
-            message="GitHubユーザー名を入力して統計を表示してください"
+            message="いずれかのプラットフォームのユーザー名を入力して統計を表示してください"
             icon={
               <svg 
                 className="w-16 h-16 text-gray-400" 

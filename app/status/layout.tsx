@@ -1,9 +1,6 @@
-import type { Metadata } from "next";
+'use client';
 
-export const metadata: Metadata = {
-  title: "ユーザー統計 - GitHub Stats Visualizer",
-  description: "GitHubユーザーの詳細な統計情報と活動履歴を表示",
-};
+import { AppHeader } from '@/components/template/AppHeader';
 
 interface StatusLayoutProps {
   children: React.ReactNode;
@@ -11,8 +8,11 @@ interface StatusLayoutProps {
 
 export default function StatusLayout({ children }: StatusLayoutProps) {
   return (
-    <div className="min-h-screen">
-      {children}
-    </div>
+    <>
+      <AppHeader />
+      <div className="min-h-screen bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+        {children}
+      </div>
+    </>
   );
 } 

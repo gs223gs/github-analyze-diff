@@ -34,4 +34,20 @@ export interface Platform {
   name: string;
   icon: React.ReactNode;
   bgColor: string;
-} 
+}
+
+export interface SearchQuery {
+  github?: string;
+  zenn?: string;
+  qiita?: string;
+  atcoder?: string;
+}
+
+export interface SearchHistoryItem {
+  id: string;
+  query: SearchQuery;
+  timestamp: number;
+  displayName: string;
+}
+
+export type PlatformType = 'github' | 'zenn' | 'qiita' | 'atcoder'; 
