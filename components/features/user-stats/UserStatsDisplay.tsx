@@ -36,14 +36,10 @@ export function UserStatsDisplay({ user }: UserStatsDisplayProps) {
           </div>
           <h2 className="text-2xl font-bold text-gray-800 dark:text-white">
             GitHub
-            <a
+            <ProfileLink
               href={PLATFORM_CONFIGS.github.statsUrls.profile(user)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-500 hover:text-blue-600"
-            >
-              <span className="text-sm ml-2">プロフィールに行く</span>
-            </a>
+              text="プロフィールに行く"
+            />
           </h2>
         </div>
 
