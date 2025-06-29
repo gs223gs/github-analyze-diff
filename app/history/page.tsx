@@ -78,9 +78,16 @@ export default function HistoryPage() {
 
         {/* 確認ダイアログ */}
         {showConfirmClear && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+          <div
+            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="dialog-title"
+          >
             <div className="bg-white dark:bg-gray-800 rounded-lg p-6 max-w-sm w-full">
-              <h3 className="text-lg font-semibold mb-4">履歴を削除</h3>
+              <h3 id="dialog-title" className="text-lg font-semibold mb-4">
+                履歴を削除
+              </h3>
               <p className="text-gray-600 dark:text-gray-300 mb-6">
                 すべての検索履歴を削除しますか？この操作は取り消せません。
               </p>
