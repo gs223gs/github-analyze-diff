@@ -140,12 +140,14 @@ export default function HistoryPage() {
                           atcoder: { icon: '🏆', color: 'bg-orange-100 text-orange-800 dark:bg-orange-900/20 dark:text-orange-300' },
                         }[platform as keyof typeof item.query];
 
+                        if (!platformConfig) return null;
+
                         return (
                           <span
                             key={platform}
-                            className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${platformConfig?.color}`}
+                            className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${platformConfig.color}`}
                           >
-                            <span className="mr-1">{platformConfig?.icon}</span>
+                            <span className="mr-1">{platformConfig.icon}</span>
                             {username}
                           </span>
                         );
