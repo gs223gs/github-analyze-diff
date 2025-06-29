@@ -36,10 +36,14 @@ export function UserStatsDisplay({ user }: UserStatsDisplayProps) {
           </div>
           <h2 className="text-2xl font-bold text-gray-800 dark:text-white">
             GitHub
-            <ProfileLink
+            <a
               href={PLATFORM_CONFIGS.github.statsUrls.profile(user)}
-              text="プロフィールに行く"
-            />
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-500 hover:text-blue-600"
+            >
+              <span className="text-sm ml-2">プロフィールに行く</span>
+            </a>
           </h2>
         </div>
 
@@ -299,7 +303,10 @@ export function UserStatsDisplay({ user }: UserStatsDisplayProps) {
               プロフィール詳細
             </h3>
             <Image
-              src={PLATFORM_CONFIGS.github.statsUrls.profileDetails(user, theme)}
+              src={PLATFORM_CONFIGS.github.statsUrls.profileDetails(
+                user,
+                theme
+              )}
               alt={`${user}'s profile details`}
               width={495}
               height={195}
@@ -327,7 +334,10 @@ export function UserStatsDisplay({ user }: UserStatsDisplayProps) {
               アクティブ時間
             </h3>
             <Image
-              src={PLATFORM_CONFIGS.github.statsUrls.productiveTime(user, theme)}
+              src={PLATFORM_CONFIGS.github.statsUrls.productiveTime(
+                user,
+                theme
+              )}
               alt={`${user}'s productive time`}
               width={495}
               height={195}
