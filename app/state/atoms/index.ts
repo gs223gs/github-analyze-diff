@@ -40,6 +40,10 @@ export const THEMES = {
 export const THEME_OPTIONS = Object.values(THEMES);
 
 export const userAtom = atom<string>("");
+export const userZennAtom = atom<string>("");
+export const userQiitaAtom = atom<string>("");
+export const userAtcoderAtom = atom<string>("");
+
 export const profileUserAtom = atom<string>("");
 
 export const themeAtom = atom<Theme>("tokyonight");
