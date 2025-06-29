@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { useAtom } from "jotai";
 import { themeAtom } from "@/app/state/atoms";
+import { PLATFORM_CONFIGS } from "@/constants/platforms";
 
 interface UserStatsDisplayProps {
   user: string;
@@ -8,7 +9,7 @@ interface UserStatsDisplayProps {
 
 export function UserStatsDisplay({ user }: UserStatsDisplayProps) {
   const [theme] = useAtom(themeAtom);
-  
+
   return (
     <>
       {/* ヘッダー */}
@@ -35,6 +36,14 @@ export function UserStatsDisplay({ user }: UserStatsDisplayProps) {
           </div>
           <h2 className="text-2xl font-bold text-gray-800 dark:text-white">
             GitHub
+            <a
+              href={PLATFORM_CONFIGS.github.statsUrls.profile(user)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-500 hover:text-blue-600"
+            >
+              <span className="text-sm ml-2">プロフィールに行く</span>
+            </a>
           </h2>
         </div>
 
@@ -44,7 +53,7 @@ export function UserStatsDisplay({ user }: UserStatsDisplayProps) {
               フォロワー数
             </h3>
             <Image
-              src={`https://img.shields.io/github/followers/${user}?label=follow&logo=github&style=flat`}
+              src={PLATFORM_CONFIGS.github.statsUrls.followers(user)}
               alt={`${user}'s GitHub followers`}
               width={150}
               height={30}
@@ -58,7 +67,7 @@ export function UserStatsDisplay({ user }: UserStatsDisplayProps) {
               スター数
             </h3>
             <Image
-              src={`https://img.shields.io/github/stars/${user}?label=star&logo=github&style=flat`}
+              src={PLATFORM_CONFIGS.github.statsUrls.stars(user)}
               alt={`${user}'s GitHub stars`}
               width={150}
               height={30}
@@ -77,6 +86,14 @@ export function UserStatsDisplay({ user }: UserStatsDisplayProps) {
           </div>
           <h2 className="text-2xl font-bold text-gray-800 dark:text-white">
             Zenn
+            <a
+              href={PLATFORM_CONFIGS.zenn.statsUrls.profile(user)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-500 hover:text-blue-600"
+            >
+              <span className="text-sm ml-2">プロフィールに行く</span>
+            </a>
           </h2>
         </div>
 
@@ -86,7 +103,7 @@ export function UserStatsDisplay({ user }: UserStatsDisplayProps) {
               記事数
             </h3>
             <Image
-              src={`https://badgen.org/img/zenn/${user}/articles?style=plastic`}
+              src={PLATFORM_CONFIGS.zenn.statsUrls.articles(user)}
               alt={`${user}'s Zenn articles`}
               width={120}
               height={20}
@@ -100,7 +117,7 @@ export function UserStatsDisplay({ user }: UserStatsDisplayProps) {
               いいね数
             </h3>
             <Image
-              src={`https://badgen.org/img/zenn/${user}/likes?style=plastic`}
+              src={PLATFORM_CONFIGS.zenn.statsUrls.likes(user)}
               alt={`${user}'s Zenn likes`}
               width={120}
               height={20}
@@ -114,7 +131,7 @@ export function UserStatsDisplay({ user }: UserStatsDisplayProps) {
               フォロワー
             </h3>
             <Image
-              src={`https://badgen.org/img/zenn/${user}/followers?style=plastic`}
+              src={PLATFORM_CONFIGS.zenn.statsUrls.followers(user)}
               alt={`${user}'s Zenn followers`}
               width={120}
               height={20}
@@ -128,7 +145,7 @@ export function UserStatsDisplay({ user }: UserStatsDisplayProps) {
               本の数
             </h3>
             <Image
-              src={`https://badgen.org/img/zenn/${user}/books?style=plastic`}
+              src={PLATFORM_CONFIGS.zenn.statsUrls.books(user)}
               alt={`${user}'s Zenn books`}
               width={120}
               height={20}
@@ -151,6 +168,14 @@ export function UserStatsDisplay({ user }: UserStatsDisplayProps) {
               <h2 className="text-2xl font-bold text-gray-800 dark:text-white">
                 Qiita
               </h2>
+              <a
+                href={PLATFORM_CONFIGS.qiita.statsUrls.profile(user)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 hover:text-blue-600"
+              >
+                <span className="text-sm ml-2">プロフィールに行く</span>
+              </a>
             </div>
 
             <div className="grid grid-cols-2 gap-4">
@@ -159,7 +184,7 @@ export function UserStatsDisplay({ user }: UserStatsDisplayProps) {
                   貢献度
                 </h3>
                 <Image
-                  src={`https://badgen.org/img/qiita/${user}/contributions?style=plastic`}
+                  src={PLATFORM_CONFIGS.qiita.statsUrls.contributions(user)}
                   alt={`${user}'s Qiita contributions`}
                   width={120}
                   height={20}
@@ -173,7 +198,7 @@ export function UserStatsDisplay({ user }: UserStatsDisplayProps) {
                   記事数
                 </h3>
                 <Image
-                  src={`https://badgen.org/img/qiita/${user}/articles?style=plastic`}
+                  src={PLATFORM_CONFIGS.qiita.statsUrls.articles(user)}
                   alt={`${user}'s Qiita articles`}
                   width={120}
                   height={20}
@@ -193,6 +218,14 @@ export function UserStatsDisplay({ user }: UserStatsDisplayProps) {
               <h2 className="text-2xl font-bold text-gray-800 dark:text-white">
                 AtCoder
               </h2>
+              <a
+                href={PLATFORM_CONFIGS.atcoder.statsUrls.profile(user)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 hover:text-blue-600"
+              >
+                <span className="text-sm ml-2">プロフィールに行く</span>
+              </a>
             </div>
 
             <div className="grid grid-cols-2 gap-4">
@@ -201,7 +234,7 @@ export function UserStatsDisplay({ user }: UserStatsDisplayProps) {
                   Algorithm
                 </h3>
                 <Image
-                  src={`https://badgen.org/img/atcoder/${user}/rating/algorithm?style=plastic`}
+                  src={PLATFORM_CONFIGS.atcoder.statsUrls.algorithm(user)}
                   alt={`${user}'s AtCoder algorithm rating`}
                   width={120}
                   height={20}
@@ -215,7 +248,7 @@ export function UserStatsDisplay({ user }: UserStatsDisplayProps) {
                   Heuristic
                 </h3>
                 <Image
-                  src={`https://badgen.org/img/atcoder/${user}/rating/heuristic?style=plastic`}
+                  src={PLATFORM_CONFIGS.atcoder.statsUrls.heuristic(user)}
                   alt={`${user}'s AtCoder heuristic rating`}
                   width={120}
                   height={20}
@@ -235,9 +268,7 @@ export function UserStatsDisplay({ user }: UserStatsDisplayProps) {
         </h2>
         <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 overflow-x-auto">
           <Image
-            src={`https://github-profile-trophy.vercel.app/?username=${user}&theme=${
-              theme.includes("dark") ? "darkhub" : "flat"
-            }&column=7&margin-w=15&margin-h=15`}
+            src={PLATFORM_CONFIGS.github.statsUrls.trophy(user, theme)}
             alt={`${user}'s GitHub trophies`}
             width={1200}
             height={200}
@@ -258,7 +289,7 @@ export function UserStatsDisplay({ user }: UserStatsDisplayProps) {
               最も使用している言語
             </h3>
             <Image
-              src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${user}&layout=compact&theme=${theme}&langs_count=10`}
+              src={PLATFORM_CONFIGS.github.statsUrls.languages(user, theme)}
               alt={`${user}'s top languages`}
               width={495}
               height={195}
@@ -272,7 +303,7 @@ export function UserStatsDisplay({ user }: UserStatsDisplayProps) {
               プロフィール詳細
             </h3>
             <Image
-              src={`https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=${user}&theme=${theme}`}
+              src={PLATFORM_CONFIGS.github.statsUrls.profileDetails(user, theme)}
               alt={`${user}'s profile details`}
               width={495}
               height={195}
@@ -286,7 +317,7 @@ export function UserStatsDisplay({ user }: UserStatsDisplayProps) {
               GitHub統計
             </h3>
             <Image
-              src={`https://github-readme-stats.vercel.app/api?username=${user}&count_private=true&show_icons=true&theme=${theme}&include_all_commits=true`}
+              src={PLATFORM_CONFIGS.github.statsUrls.stats(user, theme)}
               alt={`${user}'s GitHub stats`}
               width={495}
               height={195}
@@ -300,7 +331,7 @@ export function UserStatsDisplay({ user }: UserStatsDisplayProps) {
               アクティブ時間
             </h3>
             <Image
-              src={`http://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=${user}&theme=${theme}&utcOffset=9`}
+              src={PLATFORM_CONFIGS.github.statsUrls.productiveTime(user, theme)}
               alt={`${user}'s productive time`}
               width={495}
               height={195}
