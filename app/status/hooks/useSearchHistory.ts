@@ -9,6 +9,9 @@ export function useSearchHistory() {
 
   // ローカルストレージから履歴を読み込み
   useEffect(() => {
+    if (typeof window === 'undefined' || !window.localStorage) {
+      return;
+    }
     try {
       const saved = localStorage.getItem(SEARCH_HISTORY_KEY);
       if (saved) {
