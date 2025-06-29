@@ -13,6 +13,7 @@ interface MultiPlatformSearchFormProps {
 export function MultiPlatformSearchForm({ onSearch, className = '' }: MultiPlatformSearchFormProps) {
   const [query, setQuery] = useState<SearchQuery>({});
   const [isLoading, setIsLoading] = useState(false);
+  const [manuallyEditedFields, setManuallyEditedFields] = useState<Set<PlatformType>>(new Set());
   const router = useRouter();
   const { addToHistory } = useSearchHistory();
 
@@ -25,13 +26,13 @@ export function MultiPlatformSearchForm({ onSearch, className = '' }: MultiPlatf
         [platform]: trimmedValue,
       };
 
-      // GitHubユーザー名が入力され、他のプラットフォームが空の場合はデフォルト値として設定
+      // GitHubユーザー名が入力され、他のプラットフォームが手動編集されていない場合は自動同期
       if (platform === 'github' && trimmedValue) {
         const otherPlatforms: (keyof SearchQuery)[] = ['zenn', 'qiita', 'atcoder'];
         
         otherPlatforms.forEach(otherPlatform => {
-          // 他のプラットフォームが空の場合のみデフォルト値を設定
-          if (!prev[otherPlatform]) {
+          // 手動編集されていないフィールドのみ自動同期
+          if (!manuallyEditedFields.has(otherPlatform)) {
             newQuery[otherPlatform] = trimmedValue;
           }
         });
@@ -39,6 +40,11 @@ export function MultiPlatformSearchForm({ onSearch, className = '' }: MultiPlatf
 
       return newQuery;
     });
+
+    // GitHub以外のフィールドが編集された場合、手動編集フラグを設定
+    if (platform !== 'github' && value.trim()) {
+      setManuallyEditedFields(prev => new Set([...prev, platform]));
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
