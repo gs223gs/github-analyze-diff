@@ -25,6 +25,10 @@ export function useSearchHistory() {
 
   // 履歴をローカルストレージに保存
   const saveHistory = (newHistory: SearchHistoryItem[]) => {
+    if (typeof window === 'undefined' || !window.localStorage) {
+      setHistory(newHistory);
+      return;
+    }
     try {
       localStorage.setItem(SEARCH_HISTORY_KEY, JSON.stringify(newHistory));
       setHistory(newHistory);
