@@ -3,6 +3,7 @@ export const PLATFORM_CONFIGS = {
     name: "GitHub",
     baseUrl: "https://github.com",
     statsUrls: {
+      profile: (user: string) => `https://github.com/${user}`,
       followers: (user: string) => `https://img.shields.io/github/followers/${user}?label=follow&logo=github&style=flat`,
       stars: (user: string) => `https://img.shields.io/github/stars/${user}?label=star&logo=github&style=flat`,
       stats: (user: string, theme: string) => `https://github-readme-stats.vercel.app/api?username=${user}&count_private=true&show_icons=true&theme=${theme}&include_all_commits=true`,
@@ -16,6 +17,7 @@ export const PLATFORM_CONFIGS = {
     name: "Zenn",
     baseUrl: "https://zenn.dev",
     statsUrls: {
+      profile: (user: string) => `https://zenn.dev/${user}`,
       articles: (user: string) => `https://badgen.org/img/zenn/${user}/articles?style=plastic`,
       likes: (user: string) => `https://badgen.org/img/zenn/${user}/likes?style=plastic`,
       followers: (user: string) => `https://badgen.org/img/zenn/${user}/followers?style=plastic`,
@@ -26,6 +28,7 @@ export const PLATFORM_CONFIGS = {
     name: "Qiita",
     baseUrl: "https://qiita.com",
     statsUrls: {
+      profile: (user: string) => `https://qiita.com/${user}`,
       contributions: (user: string) => `https://badgen.org/img/qiita/${user}/contributions?style=plastic`,
       articles: (user: string) => `https://badgen.org/img/qiita/${user}/articles?style=plastic`,
     },
@@ -34,6 +37,7 @@ export const PLATFORM_CONFIGS = {
     name: "AtCoder",
     baseUrl: "https://atcoder.jp",
     statsUrls: {
+      profile: (user: string) => `https://atcoder.jp/users/${user}`,
       algorithm: (user: string) => `https://badgen.org/img/atcoder/${user}/rating/algorithm?style=plastic`,
       heuristic: (user: string) => `https://badgen.org/img/atcoder/${user}/rating/heuristic?style=plastic`,
     },
