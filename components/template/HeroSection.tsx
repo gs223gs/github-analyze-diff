@@ -1,17 +1,10 @@
-import { Dispatch, SetStateAction } from "react";
-import SearchForm from "./SearchForm";
+import { MultiPlatformSearchForm } from "@/components/features/search/MultiPlatformSearchForm";
 
 interface HeroSectionProps {
-  username: string;
-  setUsername: Dispatch<SetStateAction<string>>;
-  onSubmit: (username: string) => void;
   sampleUsers?: string[];
 }
 
 export default function HeroSection({
-  username,
-  setUsername,
-  onSubmit,
   sampleUsers = ["gs223gs"],
 }: HeroSectionProps) {
   return (
@@ -29,32 +22,24 @@ export default function HeroSection({
           </p>
 
           {/* 検索フォーム */}
-          <div className="animate-fade-in animation-delay-400">
-            <SearchForm
-              username={username}
-              setUsername={setUsername}
-              onSubmit={onSubmit}
-              placeholder="GitHubユーザー名を入力"
-            />
+          <div className="animate-fade-in animation-delay-400 max-w-4xl mx-auto">
+            <MultiPlatformSearchForm />
           </div>
 
           {/* サンプルユーザー */}
           <div className="mt-8 animate-fade-in animation-delay-600">
             <p className="text-sm text-gray-500 dark:text-gray-400 mb-3">
-              ↓ 開発者を見る ↓
+              ↓ サンプル開発者を見る ↓
             </p>
             <div className="flex flex-wrap justify-center gap-2">
               {sampleUsers.map((user) => (
-                <button
+                <a
                   key={user}
-                  onClick={() => {
-                    setUsername(user);
-                    onSubmit(user);
-                  }}
+                  href={`/status?github=${encodeURIComponent(user)}`}
                   className="px-4 py-2 rounded-full bg-white dark:bg-gray-800 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors shadow-sm"
                 >
                   @{user}
-                </button>
+                </a>
               ))}
             </div>
           </div>
