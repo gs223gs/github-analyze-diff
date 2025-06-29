@@ -17,10 +17,28 @@ export function MultiPlatformSearchForm({ onSearch, className = '' }: MultiPlatf
   const { addToHistory } = useSearchHistory();
 
   const handleInputChange = (platform: PlatformType, value: string) => {
-    setQuery(prev => ({
-      ...prev,
-      [platform]: value.trim() || undefined,
-    }));
+    const trimmedValue = value.trim() || undefined;
+    
+    setQuery(prev => {
+      const newQuery = {
+        ...prev,
+        [platform]: trimmedValue,
+      };
+
+      // GitHubユーザー名が入力され、他のプラットフォームが空の場合はデフォルト値として設定
+      if (platform === 'github' && trimmedValue) {
+        const otherPlatforms: (keyof SearchQuery)[] = ['zenn', 'qiita', 'atcoder'];
+        
+        otherPlatforms.forEach(otherPlatform => {
+          // 他のプラットフォームが空の場合のみデフォルト値を設定
+          if (!prev[otherPlatform]) {
+            newQuery[otherPlatform] = trimmedValue;
+          }
+        });
+      }
+
+      return newQuery;
+    });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -132,9 +150,9 @@ export function MultiPlatformSearchForm({ onSearch, className = '' }: MultiPlatf
       <div className="text-xs text-gray-400 dark:text-gray-500 space-y-1">
         <p>💡 ヒント:</p>
         <ul className="list-disc list-inside space-y-1 ml-4">
+          <li>GitHubユーザー名を入力すると、他のプラットフォームにも自動的に同じ値が設定されます</li>
+          <li>各プラットフォームで異なるユーザー名を使用する場合は個別に編集できます</li>
           <li>複数のプラットフォームを同時に検索できます</li>
-          <li>GitHubユーザー名のみでも全プラットフォームの統計を表示します</li>
-          <li>プラットフォーム別に異なるユーザー名を指定できます</li>
         </ul>
       </div>
     </form>

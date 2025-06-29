@@ -25,7 +25,7 @@ export function useMultiPlatformUserStats() {
       query.github = github;
       primaryUser = github;
     } else if (legacyUser) {
-      // 古い形式の場合はGitHubユーザーとして扱う
+      // 古い形式の場合はGitHubユーザーとして扱い、プライマリユーザーとして設定
       query.github = legacyUser;
       primaryUser = legacyUser;
     }
@@ -33,16 +33,25 @@ export function useMultiPlatformUserStats() {
     if (zenn) {
       query.zenn = zenn;
       if (!primaryUser) primaryUser = zenn;
+    } else if (legacyUser && !zenn) {
+      // 古い形式でZennが指定されていない場合はデフォルト値として設定
+      query.zenn = legacyUser;
     }
 
     if (qiita) {
       query.qiita = qiita;
       if (!primaryUser) primaryUser = qiita;
+    } else if (legacyUser && !qiita) {
+      // 古い形式でQiitaが指定されていない場合はデフォルト値として設定
+      query.qiita = legacyUser;
     }
 
     if (atcoder) {
       query.atcoder = atcoder;
       if (!primaryUser) primaryUser = atcoder;
+    } else if (legacyUser && !atcoder) {
+      // 古い形式でAtCoderが指定されていない場合はデフォルト値として設定
+      query.atcoder = legacyUser;
     }
 
     setCurrentQuery(query);
