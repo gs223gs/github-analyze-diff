@@ -1,1 +1,2 @@
-export { UserStatsDisplay } from "./UserStatsDisplay"; 
+export { UserStatsDisplay } from "./UserStatsDisplay";
+export { MultiPlatformUserStatsDisplay } from "./MultiPlatformUserStatsDisplay"; 
