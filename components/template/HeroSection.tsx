@@ -35,7 +35,7 @@ export default function HeroSection({
               {sampleUsers.map((user) => (
                 <a
                   key={user}
-                  href={`/status?github=${encodeURIComponent(user)}`}
+                  href={`/status?github=${encodeURIComponent(user)}&zenn=${encodeURIComponent(user)}&qiita=${encodeURIComponent(user)}&atcoder=gs223gs`}
                   className="px-4 py-2 rounded-full bg-white dark:bg-gray-800 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors shadow-sm"
                 >
                   @{user}
